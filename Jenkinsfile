@@ -6,7 +6,7 @@ pipeline {
   stages {
     
 
-    stage('Build Go') {	
+    stage('Build Image') {	
       steps {	
 	      script {
               if (env.BRANCH_NAME == 'development'){
