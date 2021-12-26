@@ -22,11 +22,11 @@ pipeline {
       steps {	
 	      script {
               if (env.BRANCH_NAME == 'development'){
-                  sh 'docker build -t gcr.io/wlb-dev/wlb-cron-go:0.1.$BUILD_NUMBER-dev .'
+                  sh 'docker build -t gcr.io/wlb-dev/taufik-test:0.1.$BUILD_NUMBER-dev .'
               } else if (env.BRANCH_NAME == 'staging'){
-                  sh 'docker build -t gcr.io/wlb-dev/wlb-cron-go:0.1.$BUILD_NUMBER-staging .'
+                  sh 'docker build -t gcr.io/wlb-dev/taufik-test:0.1.$BUILD_NUMBER-staging .'
               } else if (env.BRANCH_NAME == 'prod'){
-                  sh 'docker build -t gcr.io/wlb-dev/wlb-cron-go:0.1.$BUILD_NUMBER-prod .'
+                  sh 'docker build -t gcr.io/wlb-dev/taufik-test:0.1.$BUILD_NUMBER-prod .'
               }
               else {
                   sh 'echo no branches'
@@ -38,12 +38,12 @@ pipeline {
 	    steps {
 	      script {
               if (env.BRANCH_NAME == 'development'){
-                  sh 'docker push gcr.io/wlb-dev/wlb-cron-go:0.1.$BUILD_NUMBER-dev'
+                  sh 'docker push gcr.io/wlb-dev/taufik-test:0.1.$BUILD_NUMBER-dev'
               } else if (env.BRANCH_NAME == 'staging'){
-                  sh 'docker push gcr.io/wlb-dev/wlb-cron-go:0.1.$BUILD_NUMBER-staging'
+                  sh 'docker push gcr.io/wlb-dev/taufik-test:0.1.$BUILD_NUMBER-staging'
               }
               else if (env.BRANCH_NAME == 'prod'){
-                  sh 'docker push gcr.io/wlb-dev/wlb-cron-go:0.1.$BUILD_NUMBER-prod'
+                  sh 'docker push gcr.io/wlb-dev/taufik-test:0.1.$BUILD_NUMBER-prod'
               }
           }        
       }          
