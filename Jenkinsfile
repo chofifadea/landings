@@ -4,19 +4,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))    
   }        
   stages {
-     stage('sonarqube') {
-        environment {
-            scannerHome = tool 'SonarQube'
-        }
-        steps {
-            withSonarQubeEnv('sonarqube') {
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
-            timeout(time: 10, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-            }
-        }
-    }
+    
 
     stage('Build Go') {	
       steps {	
